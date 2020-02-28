@@ -1,6 +1,6 @@
-# Async first
+# Async-first approach
 
-As it was mentioned before, `heim` is created with "async-first" idea in mind.
+As it was mentioned before, `heim` is created with the "async-first" idea in mind.
 
 If you are not familiar with async programming in Rust,
 refer to "[Asynchronous Programming in Rust](https://rust-lang.github.io/async-book/)" book
@@ -16,7 +16,7 @@ might spend a lot of time gathering requested system information.
 Most common argument against it is the
 "how much time will one `syscall` take, am I right?",
 but in a worse case scenarios, it might take some unknown and unpredictable
-amount of time to do one simple operation, which is not what you
+amount of time to make one simple operation, which is not what you
 usually expect from your operating system.
 
 For example, it might take seconds [to read one file](https://unix.stackexchange.com/questions/451673/how-can-cat-proc-pid-cmdline-take-several-seconds)

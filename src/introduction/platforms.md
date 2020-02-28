@@ -15,7 +15,7 @@ right now it targets to support [Tier 1](https://forge.rust-lang.org/release/pla
 In addition, most recent OS versions are targeted right now;
 for example, there might be a chance that it will not work on Linux 2.6.
 This should be considered as a bug and if you have compatibility issues,
-feel free to [create an issue](https://github.com/heim-rs/heim/issues/new) for that.
+feel free to [create an issue](https://github.com/heim-rs/heim/issues/new) about it.
 
 Other platforms are not implemented yet and there is no ETA on them.
 Contributions are welcomed!
