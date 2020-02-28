@@ -30,7 +30,7 @@ It is up to users to convert types where it is needed.
 Here is a quick re-implementation of the unix `uname -a` command,
 which uses `#[async_std::main]` macro to execute async routines:
 
-```rust
+```rust,edition2018
 use heim::{host, Result};
 
 #[async_std::main]

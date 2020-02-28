@@ -40,7 +40,7 @@ Where:
 
 ## Public interface
 
-```rust
+```rust,edition2018
 use heim_common::prelude::wrap;
 
 use crate::sys;
@@ -58,7 +58,7 @@ It is strictly important that struct should only has these methods,
 which are available on all platforms supported,
 as done in the following example.
 
-```rust
+```rust,edition2018
 impl CpuStats {
     pub fn ctx_switches(&self) -> u64 {
         self.as_ref().ctx_switches()
@@ -74,7 +74,7 @@ Linux additionally provides the amount of "soft interrupts",
 but we can't expose it here, because it would not be portable.\
 Instead, we should create the `CpuStatsExt` trait at `os/linux/stats.rs`:
 
-```rust
+```rust,edition2018
 pub trait CpuStatsExt {
     fn soft_interrupts(&self) -> u64;
 }
@@ -104,7 +104,7 @@ Implementation for our `src/stats.rs` goes into the `sys/linux/stats.rs` module.
 
 In the case of Linux it will contain few fields, which will be populated later:
 
-```rust
+```rust,edition2018
 pub struct CpuStats {
     ctx_switches: u64,
     interrupts: u64,
@@ -126,7 +126,7 @@ and create the `sys::CpuStats` struct with data from it.
 
 Our `sys/linux/stats.rs` should declare one function:
 
-```rust
+```rust,edition2018
 use heim_common::Result;
 use heim_runtime as rt;
 
@@ -142,7 +142,7 @@ Now let's go back to our public `CpuStats` struct.
 
 It should declare a similar function too, but its implementation will be much simpler:
 
-```rust
+```rust,edition2018
 use heim_common::Result;
 
 use crate::sys;

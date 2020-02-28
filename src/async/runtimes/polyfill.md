@@ -24,7 +24,7 @@ will be used for this example.
 
 Let's rewrite the same `uname -a` program, but in a blocking manner now:
 
-```rust
+```rust,edition2018
 use heim::{host, Result};
 
 fn main() -> Result<()> {

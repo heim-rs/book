@@ -24,7 +24,7 @@ runtime instance you are using for other parts of your program.
 Here is a quick re-implementation of the unix `uname -a` command,
 which uses `#[tokio::main]` macro to execute async routines:
 
-```rust
+```rust,edition2018
 use heim::{host, Result};
 
 #[tokio::main]
