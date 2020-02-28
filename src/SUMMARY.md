@@ -8,6 +8,8 @@
     - [async-std](./async/runtimes/async-std.md)
     - [Other use cases](./async/runtimes/polyfill.md)
 - [Public API](./api/index.md)
+- [Contributing](./contributing/index.md)
+  - [Development guide](./contributing/development.md)
 - [Showcases](./showcases/index.md)
   - [Nushell](./showcases/nushell.md)
   - [Bottom](./showcases/bottom.md)
