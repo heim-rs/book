@@ -1,0 +1,452 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>heim</title>
+        
+        <meta name="robots" content="noindex" />
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div id="sidebar-scrollbox" class="sidebar-scrollbox">
+                <ol class="chapter"><li class="expanded "><a href="introduction/index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="expanded "><a href="introduction/platforms.html"><strong aria-hidden="true">1.1.</strong> Platforms support</a></li></ol></li><li class="expanded "><a href="async/index.html"><strong aria-hidden="true">2.</strong> Async</a></li><li><ol class="section"><li class="expanded "><a href="async/runtimes/index.html"><strong aria-hidden="true">2.1.</strong> Runtimes</a></li><li><ol class="section"><li class="expanded "><a href="async/runtimes/tokio.html"><strong aria-hidden="true">2.1.1.</strong> tokio</a></li><li class="expanded "><a href="async/runtimes/async-std.html"><strong aria-hidden="true">2.1.2.</strong> async-std</a></li><li class="expanded "><a href="async/runtimes/polyfill.html"><strong aria-hidden="true">2.1.3.</strong> Other use cases</a></li></ol></li></ol></li><li class="expanded "><a href="showcases/index.html"><strong aria-hidden="true">3.</strong> Showcases</a></li><li><ol class="section"><li class="expanded "><a href="showcases/nushell.html"><strong aria-hidden="true">3.1.</strong> Nushell</a></li><li class="expanded "><a href="showcases/bottom.html"><strong aria-hidden="true">3.2.</strong> Bottom</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">heim</h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                            <a href="https://github.com/heim-rs/book" title="Git repository" aria-label="Git repository">
+                                <i id="git-repository-button" class="fa fa-github"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#introduction" id="introduction">Introduction</a></h1>
+<p><img src="https://raw.githubusercontent.com/heim-rs/heim/master/.github/readme-logo.png" alt="" /></p>
+<p><code>heim</code> is a cross-platform Rust crate for retrieving information
+about system processes and various system details
+(such as CPU, memory, disks, networks and sensors).</p>
+<p><code>heim</code> has few key goals which define its development and public interface:</p>
+<ul>
+<li>Async-first.<br />
+Refer to <a href="introduction/../async/index.html">&quot;Async&quot; section</a> for additional details.</li>
+<li>Cross-platform.<br />
+Any code from <code>heim</code> should just work on all <a href="introduction/./platforms.html">supported platforms</a>.
+OS-specific things do exist, but API design forces users to pay attention to them.</li>
+<li>Modular design.</li>
+<li>Idiomatic and easy to use.</li>
+</ul>
+<h1><a class="header" href="#platforms-support" id="platforms-support">Platforms support</a></h1>
+<p><code>heim</code> is still in a MVP phase and due to the lack of resources
+right now it targets to support <a href="https://forge.rust-lang.org/release/platform-support.html#tier-1">Tier 1</a> platforms only:</p>
+<table><thead><tr><th align="left">OS</th><th>Architecture</th></tr></thead><tbody>
+<tr><td align="left">Linux</td><td>i686</td></tr>
+<tr><td align="left">Linux</td><td>x86_64</td></tr>
+<tr><td align="left">macOS</td><td>i686</td></tr>
+<tr><td align="left">macOS</td><td>x86_64</td></tr>
+<tr><td align="left">Windows</td><td>i686</td></tr>
+<tr><td align="left">Windows</td><td>x86_64</td></tr>
+</tbody></table>
+<p>In addition, most recent OS versions are targeted right now;
+for example, there might be a chance that it will not work on Linux 2.6.
+This should be considered as a bug and if you have compatibility issues,
+feel free to <a href="https://github.com/heim-rs/heim/issues/new">create an issue</a> for that.</p>
+<p>Other platforms are not implemented yet and there is no ETA on them.
+Contributions are welcomed!</p>
+<h1><a class="header" href="#async-first" id="async-first">Async first</a></h1>
+<p>As it was mentioned before, <code>heim</code> is created with &quot;async-first&quot; idea in mind.</p>
+<p>If you are not familiar with async programming in Rust,
+refer to &quot;<a href="https://rust-lang.github.io/async-book/">Asynchronous Programming in Rust</a>&quot; book
+to learn about wider view on the topic.</p>
+<h2><a class="header" href="#motivation" id="motivation">Motivation</a></h2>
+<p>It might be seen unusual for such a library to be so persistent on the
+&quot;async-first&quot; approach.
+The reason for that is because even the modern operating systems
+might spend a lot of time gathering requested system information.</p>
+<p>Most common argument against it is the
+&quot;how much time will one <code>syscall</code> take, am I right?&quot;,
+but in a worse case scenarios, it might take some unknown and unpredictable
+amount of time to do one simple operation, which is not what you
+usually expect from your operating system.</p>
+<p>For example, it might take seconds <a href="https://unix.stackexchange.com/questions/451673/how-can-cat-proc-pid-cmdline-take-several-seconds">to read one file</a>
+from the Linux <code>procfs</code> virtual filesystem; or if you accidentally
+called <code>access(2)</code> on a NFS mount, performance slaps you in the face,
+because now OS needs to make a network request to do that.</p>
+<p>Acknowledging this fact, you might consider <code>async</code> keyword in the
+<code>heim</code> public API as a mere marker of uncertainty on how much time
+this operation will take; it really depends on what information
+you are requesting and what operating system is used.</p>
+<p>Thanks to the modern Rust async runtimes, it is very easy and safe
+to do something else while waiting on this one operation,
+so why should not we embrace it already?</p>
+<h1><a class="header" href="#async-runtimes" id="async-runtimes">Async runtimes</a></h1>
+<p>Due to current young state of the async Rust ecosystem,
+it is impossible for <code>heim</code> to be abstract over the needed async primitives
+(filesystem operations, network operations and concurrency basics in our case),
+therefore, it provides integration with the most popular async runtimes
+in order to reduce code bloat and possible runtime overhead.</p>
+<h2><a class="header" href="#existing-integrations" id="existing-integrations">Existing integrations</a></h2>
+<ul>
+<li><a href="https://tokio.rs"><code>tokio</code></a>: see <a href="async/runtimes/./tokio.html">&quot;tokio&quot; section</a></li>
+<li><a href="https://async.rs"><code>async-std</code></a>: see <a href="async/runtimes/./async-std.html">&quot;async-std&quot; section</a> </li>
+</ul>
+<h2><a class="header" href="#another-option" id="another-option">Another option</a></h2>
+<p>If you are using another async runtime
+or want to use <code>heim</code> in a blocking manner,
+you can use fallback option, refer to <a href="async/runtimes/./polyfill.html">&quot;Other use cases&quot; section</a>
+for additional details.</p>
+<h2><a class="header" href="#references" id="references">References</a></h2>
+<ul>
+<li><a href="async/runtimes/">https://www.reddit.com/r/rust/comments/f9gkn5/why_arent_async_runtimes_abstracted_using_a_trait/</a></li>
+<li><a href="async/runtimes/">https://www.reddit.com/r/rust/comments/ej649l/a_summary_of_the_current_state_of_async_rust/</a></li>
+<li><a href="async/runtimes/">https://www.reddit.com/r/rust/comments/dpjlkt/can_anyone_give_me_a_high_level_summary_of_the/</a></li>
+<li><a href="async/runtimes/">https://www.reddit.com/r/rust/comments/d6pw43/will_crates_like_tokio_mio_and_futures_be_still/</a></li>
+</ul>
+<h1><a class="header" href="#tokio" id="tokio">Tokio</a></h1>
+<p><code>heim</code> can utilize <a href="https://tokio.rs"><code>tokio</code></a> async runtime
+in order to fetch system information.</p>
+<p>It is a preferred way to use <code>heim</code> if you already using <code>tokio</code>
+to execute asynchronous routines
+(directly, via <code>actix-web</code>, <code>hyper</code> or any other <code>tokio</code>-based library).</p>
+<p>In order to enable this integration, you need to explicitly opt-in into
+<code>runtime-tokio</code> feature in your Cargo manifest:</p>
+<pre><code class="language-toml">tokio = { version = &quot;*&quot;, features = [&quot;full&quot;, &quot;macros&quot;] }
+heim = { version = &quot;*&quot;, features = [&quot;runtime-tokio&quot;] }
+</code></pre>
+<p>Now, in case if <code>heim</code> would want to access network or filesystem,
+it will use <code>tokio</code> routines for that, utilizing the same
+runtime instance you are using for other parts of your program.</p>
+<h2><a class="header" href="#example" id="example">Example</a></h2>
+<p>Here is a quick re-implementation of the unix <code>uname -a</code> command,
+which uses <code>#[tokio::main]</code> macro to execute async routines:</p>
+<pre><pre class="playpen"><code class="language-rust">use heim::{host, Result};
+
+#[tokio::main]
+async fn main() -&gt; Result&lt;()&gt; {
+    let platform = host::platform().await?;
+
+    println!(
+        &quot;{} {} {} {} {}&quot;,
+        platform.system(),
+        platform.release(),
+        platform.hostname(),
+        platform.version(),
+        platform.architecture().as_str(),
+    );
+
+    Ok(())
+}
+</code></pre></pre>
+<h1><a class="header" href="#async-std" id="async-std">async-std</a></h1>
+<p>Same to the <a href="async/runtimes/./tokio.html">&quot;tokio&quot; section</a>, <code>heim</code> can be integrated
+with <a href="https://tokio.rs"><code>async-std</code></a> runtime.</p>
+<p>It is a preferred way to use <code>heim</code> if you already using <code>async-std</code>
+to execute asynchronous routines.</p>
+<p>In order to enable this integration, you need to explicitly opt-in into
+<code>runtime-async-std</code> feature in your Cargo manifest:</p>
+<pre><code class="language-toml">async-std = &quot;*&quot;
+heim = { version = &quot;*&quot;, features = [&quot;runtime-async-std&quot;] }
+</code></pre>
+<p>Now, in case if <code>heim</code> would want to access network or filesystem,
+it will use <code>async-std</code> routines for that, utilizing the same
+runtime instance you are using for other parts of your program.</p>
+<h2><a class="header" href="#compatibility" id="compatibility">Compatibility</a></h2>
+<p>Note that <code>heim</code> operates with <code>std</code> types where it is required.<br />
+For example, <a href="https://docs.rs/heim/*/heim/disk/struct.Partition.html#method.mount_point"><code>heim::disk::Partition::mount_point</code></a> method
+returns <code>std::path::Path</code>, not the <code>async_std::path::Path</code>.<br />
+It is up to users to convert types where it is needed.</p>
+<h2><a class="header" href="#example-1" id="example-1">Example</a></h2>
+<p>Here is a quick re-implementation of the unix <code>uname -a</code> command,
+which uses <code>#[async_std::main]</code> macro to execute async routines:</p>
+<pre><pre class="playpen"><code class="language-rust">use heim::{host, Result};
+
+#[async_std::main]
+async fn main() -&gt; Result&lt;()&gt; {
+    let platform = host::platform().await?;
+
+    println!(
+        &quot;{} {} {} {} {}&quot;,
+        platform.system(),
+        platform.release(),
+        platform.hostname(),
+        platform.version(),
+        platform.architecture().as_str(),
+    );
+
+    Ok(())
+}
+</code></pre></pre>
+<h1><a class="header" href="#other-use-cases" id="other-use-cases">Other use cases</a></h1>
+<p>Unfortunately, it will be a huge maintenance burden to support
+all existing async runtimes in <code>heim</code>,
+so instead it provides the fallback option,
+which executes all operations in a blocking manner on the current thread.</p>
+<p>It reduces runtime footprint, but might be a potential bottleneck,
+especially when used in the async programs.</p>
+<p>In order to enable it, you need to explicitly opt-in into
+<code>runtime-polyfill</code> feature in your Cargo manifest:</p>
+<pre><code class="language-toml">futures = &quot;0.3&quot;
+heim = { version = &quot;..&quot;, features = [&quot;runtime-polyfill&quot;] }
+</code></pre>
+<p>You still need some executor to drive futures to completion,
+<a href="https://docs.rs/futures/0.3.4/futures/executor/index.html"><code>futures::executor</code></a>
+will be used for this example.</p>
+<h2><a class="header" href="#example-2" id="example-2">Example</a></h2>
+<p>Let's rewrite the same <code>uname -a</code> program, but in a blocking manner now:</p>
+<pre><pre class="playpen"><code class="language-rust">use heim::{host, Result};
+
+fn main() -&gt; Result&lt;()&gt; {
+    // Note that program execution blocks at this point
+    // and will not be continued till `host::platform()` resolves
+    let platform = futures::executor::block_on(host::platform())?;
+
+    println!(
+        &quot;{} {} {} {} {}&quot;,
+        platform.system(),
+        platform.release(),
+        platform.hostname(),
+        platform.version(),
+        platform.architecture().as_str(),
+    );
+
+    Ok(())
+}
+</code></pre></pre>
+<h1><a class="header" href="#showcases" id="showcases">Showcases</a></h1>
+<p>These are some projects, which are using <code>heim</code> to fetch and show system information.</p>
+<p>If you know or maintain project, that is not mentioned in here,
+feel free to <a href="https://github.com/heim-rs/book/issues/new">create an issue</a>
+or send a Pull Request and it will be included to this page.</p>
+<h1><a class="header" href="#nushell" id="nushell">Nushell</a></h1>
+<p><a href="https://www.nushell.sh">Nushell</a> (&quot;<em>A new type of shell</em>&quot;) uses <code>heim</code>
+to power two bundled plugins: <code>ps</code> and <code>sys</code>.<br />
+They are providing information about system processes and system components
+correspondingly as a structured data:</p>
+<p><a href="https://docs.rs/heim/*/heim/process/index.html"><code>heim::process</code></a> routines:</p>
+<pre><code>❯ ps | where name == node
+━━━━━━━┯━━━━━━┯━━━━━━━━━┯━━━━━━━━┯━━━━━━━━━┯━━━━━━━━━
+ pid   │ name │ status  │ cpu    │ mem     │ virtual 
+───────┼──────┼─────────┼────────┼─────────┼─────────
+ 15447 │ node │ Running │ 0.0000 │ 18.5 MB │  4.7 GB 
+━━━━━━━┷━━━━━━┷━━━━━━━━━┷━━━━━━━━┷━━━━━━━━━┷━━━━━━━━━
+</code></pre>
+<p><a href="https://docs.rs/heim/*/heim/net/fn.io_counters.html"><code>heim::net::io_counters</code></a>:</p>
+<pre><code>&gt; sys | get net | where sent &gt; 0
+───┬────────┬─────────┬──────────
+ # │ name   │ sent    │ recv 
+───┼────────┼─────────┼──────────
+ 0 │ tun0   │ 30.3 MB │ 653.4 MB 
+ 1 │ wlp3s0 │ 97.7 MB │   1.2 GB 
+ 2 │ lo     │ 97.1 MB │  97.1 MB 
+───┴────────┴─────────┴──────────
+</code></pre>
+<p><a href="https://docs.rs/heim/*/heim/host/fn.platform.html"><code>heim::host::platform</code></a>,
+<a href="https://docs.rs/heim/*/heim/host/fn.uptime.html"><code>heim::host::uptime</code></a>, and
+<a href="https://docs.rs/heim/*/heim/host/fn.users.html"><code>heim::host::users</code></a>:</p>
+<pre><code>&gt; sys | get host
+───┬───────┬────────────────┬──────────────────────────────────────────┬──────────┬────────┬────────────────────────────┬────────────────
+ # │ name  │ release        │ version                                  │ hostname │ arch   │ uptime                     │ users 
+───┼───────┼────────────────┼──────────────────────────────────────────┼──────────┼────────┼────────────────────────────┼────────────────
+ 0 │ Linux │ 5.4.15-arch1-1 │ #1 SMP PREEMPT Sun, 26 Jan 2020 09:48:50 │ tardis   │ x86_64 │ [row days hours mins secs] │ [table 1 rows] 
+   │       │                │ +0000                                    │          │        │                            │  
+───┴───────┴────────────────┴──────────────────────────────────────────┴──────────┴────────┴────────────────────────────┴────────────────
+
+</code></pre>
+<h1><a class="header" href="#bottom" id="bottom">bottom</a></h1>
+<p><a href="https://github.com/ClementTsang/bottom"><code>bottom</code></a> (<em>Yet another cross-platform graphical process/system monitor</em>)
+uses <code>heim</code> to show system information in a really cool text user interface:</p>
+<p><a href="https://github.com/ClementTsang/bottom#bottom"><img src="https://raw.githubusercontent.com/ClementTsang/bottom/master/assets/summary_and_search.gif" alt="" /></a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+        
+        
+
+    </body>
+</html>
