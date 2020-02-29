@@ -162,7 +162,7 @@ especially when used in the async programs.</p>
 <p>In order to enable it, you need to explicitly opt-in into
 <code>runtime-polyfill</code> feature in your Cargo manifest:</p>
 <pre><code class="language-toml">futures = &quot;0.3&quot;
-heim = { version = &quot;..&quot;, features = [&quot;runtime-polyfill&quot;] }
+heim = { version = &quot;*&quot;, features = [&quot;host&quot;, &quot;runtime-polyfill&quot;] }
 </code></pre>
 <p>You still need some executor to drive futures to completion,
 <a href="https://docs.rs/futures/0.3.4/futures/executor/index.html"><code>futures::executor</code></a>
@@ -188,6 +188,9 @@ fn main() -&gt; Result&lt;()&gt; {
     Ok(())
 }
 </code></pre></pre>
+<p>You can check <a href="https://github.com/heim-rs/heim/tree/master/examples">other examples</a> also.<br />
+Note that they are using <code>tokio</code> as a runtime executor, but you can easily replace it
+with <code>async-std</code> using the example from above as a reference.</p>
 
                     </main>
 

@@ -152,11 +152,12 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h2><a class="header" href="#measurement-units" id="measurement-units">Measurement units</a></h2>
+                        <h1><a class="header" href="#measurement-units" id="measurement-units">Measurement units</a></h1>
 <p><code>heim</code> heavily relies on the <a href="https://crates.io/crates/uom"><code>uom</code></a> crate
 in order to expose proper measurement units where it is applicable.</p>
 <p>In a short, that means that, for example, <a href="https://docs.rs/heim/*/heim/cpu/struct.CpuFrequency.html"><code>heim::cpu::CpuFrequency</code></a>
-struct methods are returning <code>Frequency</code> type, instead of the primitive types as <code>u64</code>,
+struct methods are returning <code>Frequency</code> type,
+instead of the primitive types such as <code>u64</code>,
 which are <a href="https://en.wikipedia.org/wiki/Mars_Climate_Orbiter#Cause_of_failure">prone</a> to the logical bugs.</p>
 <p><code>heim</code> re-exports all used measurement quantities and units at <a href="https://docs.rs/heim/0.0.10/heim/units/index.html"><code>heim::units</code></a> module.<br />
 Refer to <a href="https://docs.rs/uom/0.27.0/uom/#usage"><code>uom</code></a> documentation

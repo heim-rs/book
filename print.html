@@ -164,7 +164,7 @@ about system processes and various system details
 <li><a href="introduction/../async/index.html">Async-first</a>.</li>
 <li>Cross-platform.<br />
 Any code from <code>heim</code> should just work on all <a href="introduction/./platforms.html">supported platforms</a>.
-OS-specific things do exist, but API design forces users to pay attention to them.</li>
+OS-specific things do <a href="introduction/../api/platform-specific.html">exist</a>, but API design forces users to pay attention to them.</li>
 <li>Modular design.</li>
 <li>Idiomatic and easy to use.</li>
 </ul>
@@ -252,7 +252,7 @@ to execute asynchronous routines
 <p>In order to enable this integration, you need to explicitly opt-in into
 <code>runtime-tokio</code> feature in your Cargo manifest:</p>
 <pre><code class="language-toml">tokio = { version = &quot;*&quot;, features = [&quot;full&quot;, &quot;macros&quot;] }
-heim = { version = &quot;*&quot;, features = [&quot;runtime-tokio&quot;] }
+heim = { version = &quot;*&quot;, features = [&quot;host&quot;, &quot;runtime-tokio&quot;] }
 </code></pre>
 <p>Now, in case if <code>heim</code> would want to access network or filesystem,
 it will use <code>tokio</code> routines for that, utilizing the same
@@ -278,6 +278,7 @@ async fn main() -&gt; Result&lt;()&gt; {
     Ok(())
 }
 </code></pre></pre>
+<p>You can check <a href="https://github.com/heim-rs/heim/tree/master/examples">other examples</a> also.</p>
 <h1><a class="header" href="#async-std" id="async-std">async-std</a></h1>
 <p>Same to the <a href="async/runtimes/./tokio.html">&quot;tokio&quot; section</a>, <code>heim</code> can be integrated
 with <a href="https://tokio.rs"><code>async-std</code></a> runtime.</p>
@@ -286,7 +287,7 @@ to execute asynchronous routines.</p>
 <p>In order to enable this integration, you need to explicitly opt-in into
 <code>runtime-async-std</code> feature in your Cargo manifest:</p>
 <pre><code class="language-toml">async-std = &quot;*&quot;
-heim = { version = &quot;*&quot;, features = [&quot;runtime-async-std&quot;] }
+heim = { version = &quot;*&quot;, features = [&quot;host&quot;, &quot;runtime-async-std&quot;] }
 </code></pre>
 <p>Now, in case if <code>heim</code> would want to access network or filesystem,
 it will use <code>async-std</code> routines for that, utilizing the same
@@ -317,6 +318,9 @@ async fn main() -&gt; Result&lt;()&gt; {
     Ok(())
 }
 </code></pre></pre>
+<p>You can check <a href="https://github.com/heim-rs/heim/tree/master/examples">other examples</a> also.<br />
+Note that they are using <code>tokio</code> as a runtime executor, but you can easily replace it
+with <code>async-std</code> using the example from above as a reference.</p>
 <h1><a class="header" href="#other-use-cases" id="other-use-cases">Other use cases</a></h1>
 <p>Unfortunately, it will be a huge maintenance burden to support
 all existing async runtimes in <code>heim</code>,
@@ -327,7 +331,7 @@ especially when used in the async programs.</p>
 <p>In order to enable it, you need to explicitly opt-in into
 <code>runtime-polyfill</code> feature in your Cargo manifest:</p>
 <pre><code class="language-toml">futures = &quot;0.3&quot;
-heim = { version = &quot;..&quot;, features = [&quot;runtime-polyfill&quot;] }
+heim = { version = &quot;*&quot;, features = [&quot;host&quot;, &quot;runtime-polyfill&quot;] }
 </code></pre>
 <p>You still need some executor to drive futures to completion,
 <a href="https://docs.rs/futures/0.3.4/futures/executor/index.html"><code>futures::executor</code></a>
@@ -353,6 +357,9 @@ fn main() -&gt; Result&lt;()&gt; {
     Ok(())
 }
 </code></pre></pre>
+<p>You can check <a href="https://github.com/heim-rs/heim/tree/master/examples">other examples</a> also.<br />
+Note that they are using <code>tokio</code> as a runtime executor, but you can easily replace it
+with <code>async-std</code> using the example from above as a reference.</p>
 <h1><a class="header" href="#public-api" id="public-api">Public API</a></h1>
 <h1><a class="header" href="#components" id="components">Components</a></h1>
 <p><code>heim</code> provides information about various system components,
@@ -389,8 +396,8 @@ async fn main() -&gt; Result&lt;()&gt; {
     Ok(())
 }
 </code></pre></pre>
-<p>But for Linux there is also amount of software interrupts available,
-and on Windows we might also want to get the syscalls amount too.<br />
+<p>But for Linux there is also an amount of software interrupts available,
+and for Windows we might also want to get the syscalls amount too.<br />
 <code>heim</code> follows Rust solution for <a href="https://doc.rust-lang.org/std/os/index.html">providing OS-specific information</a>
 and exposes extension traits for some of the publicly available structs.</p>
 <p>In order to show software interrupts and syscalls amount,
@@ -420,11 +427,12 @@ async fn main() -&gt; Result&lt;()&gt; {
 </code></pre></pre>
 <p>With this approach it is very easy to write cross-platform code
 and platform-specific calls are more noticeable.</p>
-<h2><a class="header" href="#measurement-units" id="measurement-units">Measurement units</a></h2>
+<h1><a class="header" href="#measurement-units" id="measurement-units">Measurement units</a></h1>
 <p><code>heim</code> heavily relies on the <a href="https://crates.io/crates/uom"><code>uom</code></a> crate
 in order to expose proper measurement units where it is applicable.</p>
 <p>In a short, that means that, for example, <a href="https://docs.rs/heim/*/heim/cpu/struct.CpuFrequency.html"><code>heim::cpu::CpuFrequency</code></a>
-struct methods are returning <code>Frequency</code> type, instead of the primitive types as <code>u64</code>,
+struct methods are returning <code>Frequency</code> type,
+instead of the primitive types such as <code>u64</code>,
 which are <a href="https://en.wikipedia.org/wiki/Mars_Climate_Orbiter#Cause_of_failure">prone</a> to the logical bugs.</p>
 <p><code>heim</code> re-exports all used measurement quantities and units at <a href="https://docs.rs/heim/0.0.10/heim/units/index.html"><code>heim::units</code></a> module.<br />
 Refer to <a href="https://docs.rs/uom/0.27.0/uom/#usage"><code>uom</code></a> documentation

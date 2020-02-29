@@ -161,7 +161,7 @@ to execute asynchronous routines
 <p>In order to enable this integration, you need to explicitly opt-in into
 <code>runtime-tokio</code> feature in your Cargo manifest:</p>
 <pre><code class="language-toml">tokio = { version = &quot;*&quot;, features = [&quot;full&quot;, &quot;macros&quot;] }
-heim = { version = &quot;*&quot;, features = [&quot;runtime-tokio&quot;] }
+heim = { version = &quot;*&quot;, features = [&quot;host&quot;, &quot;runtime-tokio&quot;] }
 </code></pre>
 <p>Now, in case if <code>heim</code> would want to access network or filesystem,
 it will use <code>tokio</code> routines for that, utilizing the same
@@ -187,6 +187,7 @@ async fn main() -&gt; Result&lt;()&gt; {
     Ok(())
 }
 </code></pre></pre>
+<p>You can check <a href="https://github.com/heim-rs/heim/tree/master/examples">other examples</a> also.</p>
 
                     </main>
 

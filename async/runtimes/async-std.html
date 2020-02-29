@@ -160,7 +160,7 @@ to execute asynchronous routines.</p>
 <p>In order to enable this integration, you need to explicitly opt-in into
 <code>runtime-async-std</code> feature in your Cargo manifest:</p>
 <pre><code class="language-toml">async-std = &quot;*&quot;
-heim = { version = &quot;*&quot;, features = [&quot;runtime-async-std&quot;] }
+heim = { version = &quot;*&quot;, features = [&quot;host&quot;, &quot;runtime-async-std&quot;] }
 </code></pre>
 <p>Now, in case if <code>heim</code> would want to access network or filesystem,
 it will use <code>async-std</code> routines for that, utilizing the same
@@ -191,6 +191,9 @@ async fn main() -&gt; Result&lt;()&gt; {
     Ok(())
 }
 </code></pre></pre>
+<p>You can check <a href="https://github.com/heim-rs/heim/tree/master/examples">other examples</a> also.<br />
+Note that they are using <code>tokio</code> as a runtime executor, but you can easily replace it
+with <code>async-std</code> using the example from above as a reference.</p>
 
                     </main>
 
