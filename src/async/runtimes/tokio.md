@@ -12,7 +12,7 @@ In order to enable this integration, you need to explicitly opt-in into
 
 ```toml
 tokio = { version = "*", features = ["full", "macros"] }
-heim = { version = "*", features = ["runtime-tokio"] }
+heim = { version = "*", features = ["host", "runtime-tokio"] }
 ```
 
 Now, in case if `heim` would want to access network or filesystem,
@@ -43,3 +43,5 @@ async fn main() -> Result<()> {
     Ok(())
 }
 ```
+
+You can check [other examples](https://github.com/heim-rs/heim/tree/master/examples) also.

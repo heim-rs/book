@@ -13,7 +13,7 @@ In order to enable it, you need to explicitly opt-in into
 
 ```toml
 futures = "0.3"
-heim = { version = "..", features = ["runtime-polyfill"] }
+heim = { version = "*", features = ["host", "runtime-polyfill"] }
 ```
 
 You still need some executor to drive futures to completion,
@@ -44,3 +44,7 @@ fn main() -> Result<()> {
     Ok(())
 }
 ```
+
+You can check [other examples](https://github.com/heim-rs/heim/tree/master/examples) also.\
+Note that they are using `tokio` as a runtime executor, but you can easily replace it
+with `async-std` using the example from above as a reference.

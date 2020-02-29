@@ -20,8 +20,8 @@ async fn main() -> Result<()> {
 }
 ```
 
-But for Linux there is also amount of software interrupts available,
-and on Windows we might also want to get the syscalls amount too.\
+But for Linux there is also an amount of software interrupts available,
+and for Windows we might also want to get the syscalls amount too.\
 `heim` follows Rust solution for [providing OS-specific information](https://doc.rust-lang.org/std/os/index.html)
 and exposes extension traits for some of the publicly available structs.
 

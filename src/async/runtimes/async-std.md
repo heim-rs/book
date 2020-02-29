@@ -11,7 +11,7 @@ In order to enable this integration, you need to explicitly opt-in into
 
 ```toml
 async-std = "*"
-heim = { version = "*", features = ["runtime-async-std"] }
+heim = { version = "*", features = ["host", "runtime-async-std"] }
 ```
 
 Now, in case if `heim` would want to access network or filesystem,
@@ -49,3 +49,7 @@ async fn main() -> Result<()> {
     Ok(())
 }
 ```
+
+You can check [other examples](https://github.com/heim-rs/heim/tree/master/examples) also.\
+Note that they are using `tokio` as a runtime executor, but you can easily replace it
+with `async-std` using the example from above as a reference.

@@ -11,7 +11,7 @@ about system processes and various system details
  * [Async-first](../async/index.md).
  * Cross-platform.\
    Any code from `heim` should just work on all [supported platforms](./platforms.md).
-   OS-specific things do exist, but API design forces users to pay attention to them.
+   OS-specific things do [exist](../api/platform-specific.md), but API design forces users to pay attention to them.
  * Modular design.
  * Idiomatic and easy to use.
 
