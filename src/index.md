@@ -8,10 +8,10 @@ about system processes and various system details
 
 `heim` has few key goals which define its development and public interface:
 
- * [Async-first](../async/index.md).
+ * [Async-first](./async/index.md).
  * Cross-platform.\
-   Any code from `heim` should just work on all [supported platforms](./platforms.md).
-   OS-specific things do [exist](../api/platform-specific.md), but API design forces users to pay attention to them.
+   Any code from `heim` should just work on all [supported platforms](./coverage/index.md).
+   OS-specific things do [exist](./api/platform-specific.md), but API design forces users to pay attention to them.
  * Modular design.
  * Idiomatic and easy to use.
 

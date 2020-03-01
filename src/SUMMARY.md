@@ -1,7 +1,7 @@
 # Summary
 
-- [Introduction](./introduction/index.md)
-  - [Platforms support](./introduction/platforms.md)
+- [Introduction](./index.md)
+  - [Platforms support](./coverage/index.md)
 - [Async](./async/index.md)
   - [Runtimes](./async/runtimes/index.md)
     - [tokio](./async/runtimes/tokio.md)
