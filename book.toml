@@ -9,3 +9,4 @@ create-missing = false
 [output.html]
 preferred-dark-theme = "ayu"
 git-repository-url = "https://github.com/heim-rs/book"
+google-analytics = "UA-4710084-18"
