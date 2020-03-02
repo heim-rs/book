@@ -1,6 +1,10 @@
 # Showcases
 
-These are some projects, which are using `heim` to fetch and show system information.
+These are some projects, which are using `heim` to fetch and show system information:
+
+* [Nushell](./nushell.md)
+* [Bottom](./bottom.md)
+* [Zenith](./zenith.md)
 
 If you know or maintain project, that is not mentioned in here,
 feel free to [create an issue](https://github.com/heim-rs/book/issues/new)
