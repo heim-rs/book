@@ -20,7 +20,7 @@ for additional details.
 
 ## References
 
- * https://www.reddit.com/r/rust/comments/f9gkn5/why_arent_async_runtimes_abstracted_using_a_trait/
- * https://www.reddit.com/r/rust/comments/ej649l/a_summary_of_the_current_state_of_async_rust/
- * https://www.reddit.com/r/rust/comments/dpjlkt/can_anyone_give_me_a_high_level_summary_of_the/
- * https://www.reddit.com/r/rust/comments/d6pw43/will_crates_like_tokio_mio_and_futures_be_still/
+ * [Why aren't async runtimes abstracted using a trait?](https://www.reddit.com/r/rust/comments/f9gkn5/why_arent_async_runtimes_abstracted_using_a_trait/)
+ * [A summary of the current state of async Rust?](https://www.reddit.com/r/rust/comments/ej649l/a_summary_of_the_current_state_of_async_rust/)
+ * [Can anyone give me a high level summary of the difference between Tokio and Async-std, as well as how async works in rust?](https://www.reddit.com/r/rust/comments/dpjlkt/can_anyone_give_me_a_high_level_summary_of_the/)
+ * [Will crates like tokio, mio and futures be still needed after async/await gets stabilized?](https://www.reddit.com/r/rust/comments/d6pw43/will_crates_like_tokio_mio_and_futures_be_still/)
