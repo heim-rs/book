@@ -32,3 +32,11 @@ you are requesting and what operating system is used.
 Thanks to the modern Rust async runtimes, it is very easy and safe
 to do something else while waiting on this one operation,
 so why should not we embrace it already?
+
+## Runtime support
+
+Internally `heim` uses [`smol`](https://crates.io/crates/smol) crate to execute async operations
+and [`blocking`](https://crates.io/crates/blocking) crate to execute blocking operations on a separate thread pool.
+
+Bundled support for `tokio` and `async-std` runtimes existed for some time in pre-release `v0.1.0` versions,
+but was removed as it was slowing down the development process and introduced too much maintenance burden.\
