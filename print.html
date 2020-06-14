@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div id="sidebar-scrollbox" class="sidebar-scrollbox">
-                <ol class="chapter"><li class="expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="expanded "><a href="coverage/index.html"><strong aria-hidden="true">1.1.</strong> Platforms support</a></li></ol></li><li class="expanded "><a href="async/index.html"><strong aria-hidden="true">2.</strong> Async</a></li><li><ol class="section"><li class="expanded "><a href="async/runtimes/index.html"><strong aria-hidden="true">2.1.</strong> Runtimes</a></li><li><ol class="section"><li class="expanded "><a href="async/runtimes/tokio.html"><strong aria-hidden="true">2.1.1.</strong> tokio</a></li><li class="expanded "><a href="async/runtimes/async-std.html"><strong aria-hidden="true">2.1.2.</strong> async-std</a></li><li class="expanded "><a href="async/runtimes/polyfill.html"><strong aria-hidden="true">2.1.3.</strong> Other use cases</a></li></ol></li></ol></li><li class="expanded "><a href="api/index.html"><strong aria-hidden="true">3.</strong> Public API</a></li><li><ol class="section"><li class="expanded "><a href="api/platform-specific.html"><strong aria-hidden="true">3.1.</strong> Platform-specific information</a></li><li class="expanded "><a href="api/units.html"><strong aria-hidden="true">3.2.</strong> Measurement units</a></li><li class="expanded "><a href="api/components/index.html"><strong aria-hidden="true">3.3.</strong> System components</a></li></ol></li><li class="expanded "><a href="contributing/index.html"><strong aria-hidden="true">4.</strong> Contributing</a></li><li><ol class="section"><li class="expanded "><a href="contributing/development.html"><strong aria-hidden="true">4.1.</strong> Development guide</a></li></ol></li><li class="expanded "><a href="showcases/index.html"><strong aria-hidden="true">5.</strong> Showcases</a></li><li><ol class="section"><li class="expanded "><a href="showcases/nushell.html"><strong aria-hidden="true">5.1.</strong> Nushell</a></li><li class="expanded "><a href="showcases/bottom.html"><strong aria-hidden="true">5.2.</strong> Bottom</a></li><li class="expanded "><a href="showcases/zenith.html"><strong aria-hidden="true">5.3.</strong> Zenith</a></li></ol></li></ol>
+                <ol class="chapter"><li class="expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="expanded "><a href="coverage/index.html"><strong aria-hidden="true">1.1.</strong> Platforms support</a></li></ol></li><li class="expanded "><a href="async/index.html"><strong aria-hidden="true">2.</strong> Async</a></li><li class="expanded "><a href="api/index.html"><strong aria-hidden="true">3.</strong> Public API</a></li><li><ol class="section"><li class="expanded "><a href="api/platform-specific.html"><strong aria-hidden="true">3.1.</strong> Platform-specific information</a></li><li class="expanded "><a href="api/units.html"><strong aria-hidden="true">3.2.</strong> Measurement units</a></li><li class="expanded "><a href="api/components/index.html"><strong aria-hidden="true">3.3.</strong> System components</a></li></ol></li><li class="expanded "><a href="contributing/index.html"><strong aria-hidden="true">4.</strong> Contributing</a></li><li><ol class="section"><li class="expanded "><a href="contributing/development.html"><strong aria-hidden="true">4.1.</strong> Development guide</a></li></ol></li><li class="expanded "><a href="showcases/index.html"><strong aria-hidden="true">5.</strong> Showcases</a></li><li><ol class="section"><li class="expanded "><a href="showcases/nushell.html"><strong aria-hidden="true">5.1.</strong> Nushell</a></li><li class="expanded "><a href="showcases/bottom.html"><strong aria-hidden="true">5.2.</strong> Bottom</a></li><li class="expanded "><a href="showcases/zenith.html"><strong aria-hidden="true">5.3.</strong> Zenith</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -234,146 +234,11 @@ you are requesting and what operating system is used.</p>
 <p>Thanks to the modern Rust async runtimes, it is very easy and safe
 to do something else while waiting on this one operation,
 so why should not we embrace it already?</p>
-<h1><a class="header" href="#async-runtimes" id="async-runtimes">Async runtimes</a></h1>
-<p>Due to current young state of the async Rust ecosystem,
-it is impossible for <code>heim</code> to be abstract over the needed async primitives
-(filesystem operations, network operations and concurrency basics in our case),
-therefore, it provides integration with the most popular async runtimes
-in order to reduce code bloat and possible runtime overhead.</p>
-<h2><a class="header" href="#existing-integrations" id="existing-integrations">Existing integrations</a></h2>
-<ul>
-<li><a href="https://tokio.rs"><code>tokio</code></a>: see <a href="async/runtimes/./tokio.html">&quot;tokio&quot; section</a></li>
-<li><a href="https://async.rs"><code>async-std</code></a>: see <a href="async/runtimes/./async-std.html">&quot;async-std&quot; section</a> </li>
-</ul>
-<h2><a class="header" href="#another-option" id="another-option">Another option</a></h2>
-<p>If you are using another async runtime
-or want to use <code>heim</code> in a blocking manner,
-you can use fallback option, refer to <a href="async/runtimes/./polyfill.html">&quot;Other use cases&quot; section</a>
-for additional details.</p>
-<h2><a class="header" href="#references" id="references">References</a></h2>
-<ul>
-<li><a href="https://www.reddit.com/r/rust/comments/f9gkn5/why_arent_async_runtimes_abstracted_using_a_trait/">Why aren't async runtimes abstracted using a trait?</a></li>
-<li><a href="https://www.reddit.com/r/rust/comments/ej649l/a_summary_of_the_current_state_of_async_rust/">A summary of the current state of async Rust?</a></li>
-<li><a href="https://www.reddit.com/r/rust/comments/dpjlkt/can_anyone_give_me_a_high_level_summary_of_the/">Can anyone give me a high level summary of the difference between Tokio and Async-std, as well as how async works in rust?</a></li>
-<li><a href="https://www.reddit.com/r/rust/comments/d6pw43/will_crates_like_tokio_mio_and_futures_be_still/">Will crates like tokio, mio and futures be still needed after async/await gets stabilized?</a></li>
-</ul>
-<h1><a class="header" href="#tokio" id="tokio">Tokio</a></h1>
-<p><code>heim</code> can utilize <a href="https://tokio.rs"><code>tokio</code></a> async runtime
-in order to fetch system information.</p>
-<p>It is a preferred way to use <code>heim</code> if you already using <code>tokio</code>
-to execute asynchronous routines
-(directly, via <code>actix-web</code>, <code>hyper</code> or any other <code>tokio</code>-based library).</p>
-<p>In order to enable this integration, you need to explicitly opt-in into
-<code>runtime-tokio</code> feature in your Cargo manifest:</p>
-<pre><code class="language-toml">tokio = { version = &quot;*&quot;, features = [&quot;full&quot;, &quot;macros&quot;] }
-heim = { version = &quot;*&quot;, features = [&quot;host&quot;, &quot;runtime-tokio&quot;] }
-</code></pre>
-<p>Now, in case if <code>heim</code> would want to access network or filesystem,
-it will use <code>tokio</code> routines for that, utilizing the same
-runtime instance you are using for other parts of your program.</p>
-<h2><a class="header" href="#example" id="example">Example</a></h2>
-<p>Here is a quick re-implementation of the unix <code>uname -a</code> command,
-which uses <code>#[tokio::main]</code> macro to execute async routines:</p>
-<pre><pre class="playpen"><code class="language-rust edition2018">use heim::{host, Result};
-
-#[tokio::main]
-async fn main() -&gt; Result&lt;()&gt; {
-    let platform = host::platform().await?;
-
-    println!(
-        &quot;{} {} {} {} {}&quot;,
-        platform.system(),
-        platform.release(),
-        platform.hostname(),
-        platform.version(),
-        platform.architecture().as_str(),
-    );
-
-    Ok(())
-}
-</code></pre></pre>
-<p>You can check <a href="https://github.com/heim-rs/heim/tree/master/examples">other examples</a> also.</p>
-<h1><a class="header" href="#async-std" id="async-std">async-std</a></h1>
-<p>Same to the <a href="async/runtimes/./tokio.html">&quot;tokio&quot; section</a>, <code>heim</code> can be integrated
-with <a href="https://tokio.rs"><code>async-std</code></a> runtime.</p>
-<p>It is a preferred way to use <code>heim</code> if you already using <code>async-std</code>
-to execute asynchronous routines.</p>
-<p>In order to enable this integration, you need to explicitly opt-in into
-<code>runtime-async-std</code> feature in your Cargo manifest:</p>
-<pre><code class="language-toml">async-std = &quot;*&quot;
-heim = { version = &quot;*&quot;, features = [&quot;host&quot;, &quot;runtime-async-std&quot;] }
-</code></pre>
-<p>Now, in case if <code>heim</code> would want to access network or filesystem,
-it will use <code>async-std</code> routines for that, utilizing the same
-runtime instance you are using for other parts of your program.</p>
-<h2><a class="header" href="#compatibility" id="compatibility">Compatibility</a></h2>
-<p>Note that <code>heim</code> operates with <code>std</code> types where it is required.<br />
-For example, <a href="https://docs.rs/heim/*/heim/disk/struct.Partition.html#method.mount_point"><code>heim::disk::Partition::mount_point</code></a> method
-returns <code>std::path::Path</code>, not the <code>async_std::path::Path</code>.<br />
-It is up to users to convert types where it is needed.</p>
-<h2><a class="header" href="#example-1" id="example-1">Example</a></h2>
-<p>Here is a quick re-implementation of the unix <code>uname -a</code> command,
-which uses <code>#[async_std::main]</code> macro to execute async routines:</p>
-<pre><pre class="playpen"><code class="language-rust edition2018">use heim::{host, Result};
-
-#[async_std::main]
-async fn main() -&gt; Result&lt;()&gt; {
-    let platform = host::platform().await?;
-
-    println!(
-        &quot;{} {} {} {} {}&quot;,
-        platform.system(),
-        platform.release(),
-        platform.hostname(),
-        platform.version(),
-        platform.architecture().as_str(),
-    );
-
-    Ok(())
-}
-</code></pre></pre>
-<p>You can check <a href="https://github.com/heim-rs/heim/tree/master/examples">other examples</a> also.<br />
-Note that they are using <code>tokio</code> as a runtime executor, but you can easily replace it
-with <code>async-std</code> using the example from above as a reference.</p>
-<h1><a class="header" href="#other-use-cases" id="other-use-cases">Other use cases</a></h1>
-<p>Unfortunately, it will be a huge maintenance burden to support
-all existing async runtimes in <code>heim</code>,
-so instead it provides the fallback option,
-which executes all operations in a blocking manner on the current thread.</p>
-<p>It reduces runtime footprint, but might be a potential bottleneck,
-especially when used in the async programs.</p>
-<p>In order to enable it, you need to explicitly opt-in into
-<code>runtime-polyfill</code> feature in your Cargo manifest:</p>
-<pre><code class="language-toml">futures = &quot;0.3&quot;
-heim = { version = &quot;*&quot;, features = [&quot;host&quot;, &quot;runtime-polyfill&quot;] }
-</code></pre>
-<p>You still need some executor to drive futures to completion,
-<a href="https://docs.rs/futures/0.3.4/futures/executor/index.html"><code>futures::executor</code></a>
-will be used for this example.</p>
-<h2><a class="header" href="#example-2" id="example-2">Example</a></h2>
-<p>Let's rewrite the same <code>uname -a</code> program, but in a blocking manner now:</p>
-<pre><pre class="playpen"><code class="language-rust edition2018">use heim::{host, Result};
-
-fn main() -&gt; Result&lt;()&gt; {
-    // Note that program execution blocks at this point
-    // and will not be continued till `host::platform()` resolves
-    let platform = futures::executor::block_on(host::platform())?;
-
-    println!(
-        &quot;{} {} {} {} {}&quot;,
-        platform.system(),
-        platform.release(),
-        platform.hostname(),
-        platform.version(),
-        platform.architecture().as_str(),
-    );
-
-    Ok(())
-}
-</code></pre></pre>
-<p>You can check <a href="https://github.com/heim-rs/heim/tree/master/examples">other examples</a> also.<br />
-Note that they are using <code>tokio</code> as a runtime executor, but you can easily replace it
-with <code>async-std</code> using the example from above as a reference.</p>
+<h2><a class="header" href="#runtime-support" id="runtime-support">Runtime support</a></h2>
+<p>Internally <code>heim</code> uses <a href="https://crates.io/crates/smol"><code>smol</code></a> crate to execute async operations
+and <a href="https://crates.io/crates/blocking"><code>blocking</code></a> crate to execute blocking operations on a separate thread pool.</p>
+<p>Bundled support for <code>tokio</code> and <code>async-std</code> runtimes existed for some time in pre-release <code>v0.1.0</code> versions,
+but was removed as it was slowing down the development process and introduced too much maintenance burden.\</p>
 <h1><a class="header" href="#public-api" id="public-api">Public API</a></h1>
 <h1><a class="header" href="#platform-specific-information" id="platform-specific-information">Platform-specific information</a></h1>
 <p>By default <code>heim</code> exposes only that information, which is guaranteed to be available
@@ -433,7 +298,7 @@ which are <a href="https://en.wikipedia.org/wiki/Mars_Climate_Orbiter#Cause_of_f
 <p><code>heim</code> re-exports all used measurement quantities and units at <a href="https://docs.rs/heim/0.0.10/heim/units/index.html"><code>heim::units</code></a> module.<br />
 Refer to <a href="https://docs.rs/uom/0.27.0/uom/#usage"><code>uom</code></a> documentation
 on how to work with these types.</p>
-<h2><a class="header" href="#example-3" id="example-3">Example</a></h2>
+<h2><a class="header" href="#example" id="example">Example</a></h2>
 <pre><pre class="playpen"><code class="language-rust edition2018">use heim::{cpu, units, Result};
 
 #[tokio::main]
